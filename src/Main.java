@@ -1,6 +1,15 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Main {
+
+    public static void addRandomNumber(ArrayList<Integer> list) {
+        Random random = new Random();
+        int a = random.nextInt(1000);
+
+        list.add(a);
+    }
+
     public static void main(String[] args) {
 
         // -------------------------Tree Class--------------------------
@@ -78,5 +87,27 @@ public class Main {
         arrayList.add(-13);
 
         System.out.println(arrayList);
+
+        ArrayList<Integer> arrayRandom = new ArrayList<>(7);
+        arrayRandom.add(1);
+        arrayRandom.add(2);
+        addRandomNumber(arrayRandom);
+        System.out.println(arrayRandom);
+
+        // ----------------------------Contact Class------------------------------------
+
+        Contact contactOne = new Contact("Josh", new PhoneNumber("2643214531"), "josh123@gmail.com");
+
+        Contact contactTwo = new Contact("Salena", new PhoneNumber(1, "4431457658"));
+
+        Contact contactThree = new Contact("Smith", "smith54@yahoo.com");
+
+        Contact contactFour = new Contact("Monika", new PhoneNumber("4387689876"), "monika74@gmail.com");
+
+        System.out.println("----------------Contact Class------------------");
+        System.out.println(contactOne);
+        System.out.println(contactTwo);
+        System.out.println(contactThree);
+        System.out.println(contactFour);
     }
 }
