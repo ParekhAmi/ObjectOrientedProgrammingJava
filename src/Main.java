@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -10,7 +11,7 @@ public class Main {
         list.add(a);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         // -------------------------Tree Class--------------------------
 
@@ -109,5 +110,29 @@ public class Main {
         System.out.println(contactTwo);
         System.out.println(contactThree);
         System.out.println(contactFour);
+
+        // -----------------------Digits only filereader Class-------------------------------
+
+        DigitsOnlyFileReader digitsOnlyFileReader = new DigitsOnlyFileReader("message.txt");
+
+        System.out.println("------------------Digits only filereader Class---------------------");
+        System.out.println(digitsOnlyFileReader.readFile());
+        System.out.println(digitsOnlyFileReader.getPath());
+
+        // -------------3 AccountTransfer, MissedPayment, PasswordChange Class------------
+
+        PasswordChangeEvent eventOne = new PasswordChangeEvent("1234567");
+        MissedPaymentEvent eventTwo = new MissedPaymentEvent("5433487");
+        AccountTransferEvent eventThree = new AccountTransferEvent("7645342");
+
+        System.out.println("----------AccountTransfer, MissedPayment, PasswordChange Class------");
+
+        Event[] events = { eventOne, eventTwo, eventThree };
+
+        for (Event e : events) {
+            System.out.println(e.getTimeStamp());
+            e.process();
+            System.out.println();
+        }
     }
 }
